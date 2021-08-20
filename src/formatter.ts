@@ -182,10 +182,7 @@ export default class Formatter {
         currTokenType = TokenType.Block;
       } else if ( char == "}" || char == ")" || char == "]" ) {
         currTokenType = TokenType.EndOfBlock;
-      } else if ( char == "/" && (
-          (next == "/" && (pos > 0 ? text.charAt(pos-1) : "") != ":") // only `//` but not `://`
-        || next == "*"
-      ) ) {
+      } else if ( char == "#" ) {
         currTokenType = TokenType.Comment;
       } else if ( char == ":" && next != ":" ) {
         currTokenType = TokenType.Colon;
